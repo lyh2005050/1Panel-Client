@@ -1,8 +1,8 @@
 /// 1Panel API常量配置
 class ApiConstants {
-  // API版本配置 - 1Panel使用 /api/v1 路径前缀
+  // API版本配置 - 1Panel使用 /api/v2 路径前缀
   static const String apiVersion = 'v2';
-  static const String apiPrefix = '/api/v1';
+  static const String apiPrefix = '/api/v2';
 
   // 默认服务器配置
   static const String defaultBaseUrl = 'http://localhost:10086';
@@ -68,8 +68,8 @@ class ApiPaths {
       ApiConstants.buildApiPath('/group$endpoint');
 
   // 特殊路径（无需认证）
-  static const String authLogin = '/api/v1/core/auth/login';
-  static const String healthCheck = '/api/v1/health/check';
+  static const String authLogin = '/api/v2/core/auth/login';
+  static const String healthCheck = '/api/v2/health/check';
 
   // AI 相关具体路径
   static const String aiOllamaModel = '/ai/ollama/model';

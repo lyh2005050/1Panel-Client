@@ -57,7 +57,7 @@ class ServerConnectionService {
       final token = digest.toString();
 
       final response = await dio.get(
-        '/api/v1/dashboard/base/os',
+        '/api/v2/dashboard/base/os',
         options: Options(headers: {
           '1Panel-Token': token,
           '1Panel-Timestamp': timestamp,
