@@ -67,6 +67,16 @@ class ServerConnectionService {
       stopwatch.stop();
 
       if (response.statusCode == 200 && response.data != null) {
+        // 修复：服务器返回HTML字符串时不崩溃，给出友好提示
+        if (response.data is! Map<String, dynamic>) {
+          final preview = response.data.toString();
+          return ServerConnectionResult(
+            success: false,
+            errorMessage:
+                '服务器返回了网页而不是API数据，可能是安全入口未关闭或API路径错误。返回: ${preview.substring(0, preview.length > 100 ? 100 : preview.length)}...',
+            responseTime: stopwatch.elapsed,
+          );
+        }
         final data = response.data as Map<String, dynamic>;
         if (data['data'] != null) {
           return ServerConnectionResult(
