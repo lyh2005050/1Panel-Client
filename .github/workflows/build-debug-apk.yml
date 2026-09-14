@@ -1,6 +1,9 @@
 name: Build Debug APK
 
 on:
+  push:
+    branches:
+      - dev-v2
   workflow_dispatch:
 
 permissions:
